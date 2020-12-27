@@ -2,14 +2,14 @@
 
 Website for Hareclip
 
-# Setup
+## Setup
 
-## Development
+### Development
 
     yarn install
     yarn dev
 
-## Production
+### Production
 
     yarn build
     npx serve dist
