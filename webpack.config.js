@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/styles.css',
@@ -35,7 +36,10 @@ module.exports = {
       filename: "[name].css",
     }),
     new PurgecssPlugin({
-      paths: glob.sync(`${path.join(__dirname, 'dist')}/**/*`, { nodir: true }),
+     paths: glob.sync(`${path.join(__dirname, 'src')}/**/*`, { nodir: true }),
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: 'src/assets/images', to: 'assets/images' }]
     }),
   ],
   devServer: {
