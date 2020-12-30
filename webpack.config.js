@@ -54,7 +54,7 @@ module.exports = (env, options) => {
         paths: glob.sync(`${path.join(__dirname, 'src')}/**/*`, { nodir: true }),
         extractors: [
           {
-            extractor: content => content.match(/[\w-:/]+(?<!:)/g),
+            extractor: content => content.match(/[\w-:]+(?<!:)/g),
             extensions: ["html", "js"],
           }
         ],
